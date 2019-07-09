@@ -1,0 +1,16 @@
+<div class="post">
+  <h2>{{ title }} {{ liked ? '❤️' : '💔' }}</h2>
+  <div class="image">
+    <img
+      [src]="image"
+      alt="Whale saying whale hello there"
+      (click)="onLike()"
+      imgZoom
+    />
+  </div>
+  <div class="description">{{ description }}</div>
+  <div class="metadata">
+    <p>Author: {{ author }}</p>
+    <p>Date: {{ timestamp | date }}</p>
+  </div>
+</div>
