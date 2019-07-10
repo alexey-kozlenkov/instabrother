@@ -1,0 +1,9 @@
+<div class="post">
+  <h3>{{ post.title }} {{ post.liked }}</h3>
+  <img [src]="post.photoUrl" />
+  <p>{{ post.description }}</p>
+  <div class="meta">
+    <span>{{ post.author }}</span>
+    <span>{{ post.createdAt | date }}</span>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.post {
+  max-width: 900px;
+  width: 75%;
+  padding: 1rem;
+  box-shadow: 0 0 3px 3px lightgrey;
+  margin: 1rem auto;
+
+  .meta {
+    display: flex;
+    justify-content: space-around
+  }
+
+
+}

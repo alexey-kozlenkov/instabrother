@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { PhotoPost } from './types/photo-post';
 
 @Component({
-  selector: 'app-root',
+  selector: 'ibr-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Whales are just cool';
-  image = 'https://media.giphy.com/media/yoJC2A59OCZHs1LXvW/giphy.gif';
+  posts: PhotoPost[];
 
-  like = false;
-
-  onLike() {
-    this.like = !this.like;
+  constructor(private httpClient: HttpClient) {
+    this.httpClient
+      .get<PhotoPost[]>(
+        `http://my-json-server.typicode.com/alexey-kozlenkov/instabrother/posts`
+      )
+      .subscribe(posts => (this.posts = posts));
   }
 }
