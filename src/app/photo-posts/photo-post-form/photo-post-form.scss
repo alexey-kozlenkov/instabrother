@@ -1,0 +1,19 @@
+form {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-row-gap: 0.5rem;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 3px 3px lightgrey;
+  padding: 1rem;
+
+  h3,
+  button,
+  div {
+    grid-column: span 2;
+  }
+
+  button {
+    justify-self: center;
+  }
+}
