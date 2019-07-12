@@ -1,0 +1,36 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+  <h3>Create (template) Photo Post</h3>
+
+  <label for="title">Title</label>
+  <input
+    id="title"
+    ngModel
+    [ngModelOptions]="{ updateOn: 'blur' }"
+    type="text"
+    name="title"
+    required
+  />
+
+  <label for="description">Description</label>
+  <input
+    id="description"
+    ngModel
+    type="text"
+    name="description"
+    required
+    minlength="5"
+  />
+
+  <label for="photoUrl">Image URL</label>
+  <input id="photoUrl" ngModel type="text" name="photoUrl" required />
+
+  <label for="author">Author</label>
+  <input id="author" ngModel type="text" name="author" />
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+
+  <div>
+    <div>Value: {{ form.value | json }}</div>
+    <div>Status: {{ form.status }}</div>
+  </div>
+</form>

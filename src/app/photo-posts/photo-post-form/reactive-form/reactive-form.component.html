@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <h3>Create (reactive) Photo Post</h3>
+
+  <label for="title">Title</label>
+  <input id="title" type="text" formControlName="title" />
+
+  <label for="description">Description</label>
+  <input id="description" type="text" formControlName="description" />
+
+  <label for="photoUrl">Image URL</label>
+  <input id="photoUrl" type="text" formControlName="photoUrl" />
+
+  <label for="author">Author</label>
+  <input id="author" type="text" formControlName="author" />
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+
+  <div class="meta">
+    <div>Value: {{ form.value | json }}</div>
+    <div>Status: {{ form.status }}</div>
+  </div>
+</form>

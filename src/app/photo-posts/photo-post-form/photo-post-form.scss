@@ -1,0 +1,22 @@
+form {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-row-gap: 1rem;
+  max-width: 400px;
+  padding: 0.5rem;
+  box-shadow: 0px 0px 3px 3px lightgray;
+
+  h3,
+  div,
+  button {
+    grid-column: span 2;
+  }
+
+  button {
+    justify-self: center;
+  }
+
+  .meta > div {
+    word-wrap: break-word
+  }
+}
