@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import {
-  FormGroup,
-  FormControl,
+  AbstractControl,
   FormBuilder,
-  Validators,
+  FormGroup,
   ValidationErrors,
-  AbstractControl
+  Validators
 } from '@angular/forms';
+import { PhotoPost } from 'src/app/types';
 
 const requiredValidator = (
   control: AbstractControl
@@ -19,13 +19,13 @@ const requiredValidator = (
   return value && value.length > 0 ? null : { required: true };
 };
 
-
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['../photo-post-form.scss']
 })
 export class ReactiveFormComponent {
+  @Output() addPost = new EventEmitter<Partial<PhotoPost>>();
   form: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -36,5 +36,8 @@ export class ReactiveFormComponent {
       author: ['']
     });
   }
-}
 
+  onSubmit(post: Partial<PhotoPost>) {
+    this.addPost.emit(post);
+  }
+}
