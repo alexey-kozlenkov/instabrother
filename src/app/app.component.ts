@@ -8,13 +8,4 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  photoPosts: PhotoPost[];
-
-  constructor(private httpClient: HttpClient) {
-    this.httpClient
-      .get<PhotoPost[]>(
-        'http://my-json-server.typicode.com/alexey-kozlenkov/instabrother/posts'
-      )
-      .subscribe(posts => (this.photoPosts = posts));
-  }
 }

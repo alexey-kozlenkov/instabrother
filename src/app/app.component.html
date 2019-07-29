@@ -1,6 +1,8 @@
-<div class="forms">
-  <app-template-form></app-template-form>
-  <app-reactive-form></app-reactive-form>
-</div>
+<p>
+  <a routerLink="list">Photo Posts</a>
+</p>
+<p>
+  <a routerLink="create">Create Photo Post</a>
+</p>
 
-<app-photo-posts-feed [posts]="photoPosts"></app-photo-posts-feed>
+<router-outlet></router-outlet>

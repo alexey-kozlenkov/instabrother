@@ -1,16 +1,16 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { PhotoPost } from 'src/app/types';
+import { PhotoPostsService } from '../../photo-posts.service';
 
 @Component({
   selector: 'app-template-form',
   templateUrl: './template-form.component.html',
   styleUrls: ['../photo-post-form.scss']
 })
-export class TemplateFormComponent  {
-  @Output() addPost = new EventEmitter<Partial<PhotoPost>>();
+export class TemplateFormComponent {
+  constructor(private postsService: PhotoPostsService) {}
 
-  onSubmit(value: Partial<PhotoPost>) {
-    this.addPost.emit(value);
+  onSubmit(post: Partial<PhotoPost>) {
+    this.postsService.addPhotoPost(post);
   }
-
 }

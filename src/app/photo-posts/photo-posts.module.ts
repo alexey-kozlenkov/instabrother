@@ -7,9 +7,18 @@ import { ZoomDirective } from './photo-post/zoom.directive';
 import { LikePipe } from './photo-post/like.pipe';
 import { TemplateFormComponent } from './photo-post-form/template-form/template-form.component';
 import { ReactiveFormComponent } from './photo-post-form/reactive-form/reactive-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { PhotoPostsService } from './photo-posts.service';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   declarations: [
     PhotoPostsFeedComponent,
     PhotoPostComponent,
@@ -20,6 +29,7 @@ import { ReactiveFormComponent } from './photo-post-form/reactive-form/reactive-
   ],
   exports: [
     PhotoPostsFeedComponent,
+    PhotoPostComponent,
     TemplateFormComponent,
     ReactiveFormComponent
   ]
